@@ -1,0 +1,40 @@
+.categories.alkali-metal, .indicators .alkali-metal  {
+  background: #f1609b;
+}
+
+.categories.alkaline-earth-metal, .indicators .alkaline-earth-metal {
+  background: #f37e62;
+}
+
+.categories.diatomic-nonmetal, .indicators .diatomic-nonmetal {
+  background: #8491c7;
+}
+
+.categories.transition-metal, .indicators .transition-metal  {
+  background: #f9c325;
+}
+
+.categories.noble-gas, .indicators .noble-gas {
+  background: #9b81bc;
+}
+
+.categories.post-transition-metal, .indicators .post-transition-metal  {
+  background: #F285CC;
+}
+
+.categories.metalloid, .indicators .metalloid  {
+  background: #63c5b5;
+}
+
+.categories.polyatomic-nonmetal, .indicators .polyatomic-nonmetal  {
+  background: #3ac4f2;
+}
+
+.categories.lanthanide, .indicators .lanthanide  {
+  background: #f1eb64;
+}
+
+.categories.actinide, .indicators .actinide  {
+  background: #c0d95f;
+}
+

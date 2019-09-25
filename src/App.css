@@ -1,0 +1,417 @@
+body {
+  font-size: calc(3px + (16 - 3) * ((100vw - 300px) / (1600 - 300)));
+  color: #222222;
+}
+
+.App {
+  margin: 0 auto;
+  padding: 1%;
+}
+
+#periodic-table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+}
+
+#periodic-table caption {
+  font-size: 250%;
+  font-weight: bold;
+}
+
+.empty-cell {
+  border: none;
+}
+
+.group-header {
+  position: relative;
+  width: 5.26%;
+  padding: 0 0 5.26% 0;
+}
+
+.group-selector {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#the-corner {
+  border: none;
+}
+
+th.period-header {
+  position: relative;
+  width: 5.26%;
+  padding: 0 0 5.26% 0;
+}
+
+.period-selector {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.period-selector.active, .group-selector.active {
+  background: #eee;
+}
+
+td {
+  border: 1px solid #222;
+  width: 5.26%;
+  padding: 0 0 5.26% 0;
+}
+
+.element-box {
+  position: relative;
+}
+
+.element-box.ref-box {
+  border: none;
+  color: #aaa;
+}
+
+.element-box.inactive, .category-indicator .inactive {
+  opacity: 0.5;
+}
+
+.element {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 5%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.element .number {
+  overflow: hidden;
+  font-size: 75%;
+  height: 20%;
+}
+
+.element .symbol {
+  font-weight: bold;
+  font-size: 180%;
+  height: 40%;
+}
+
+.element .name {
+  height: 20%;
+  font-size: 75%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.element .atomic-mass {
+  height: 20%;
+  font-size: 75%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+#info-box, #slider-box {
+  position: relative;
+  border: none;
+}
+
+#info-box > div, #slider-box > div {
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.categories.unknown-category, .jmol.unknown-jmol-color {
+  background: repeating-linear-gradient(
+  45deg,
+  #ffffff,
+  #ffffff 5px,
+  #dddddd 5px,
+  #dddddd 10px
+  );
+}
+
+.phase.solid {
+  color: #ffffff;
+  background: #111111;
+}
+
+.phase.liquid {
+  color: #ffffff;
+  background: #003399;
+}
+
+.phase.gas {
+  color: #ffffff;
+  background: #990000;
+}
+
+.phase.unknown {
+  color: #ffffff;
+  background: #aaaaaa;
+}
+
+.indicators-box {
+  border: none;
+  position: relative;
+}
+
+.indicators {
+  padding: 2%;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-gap: 2%;
+  grid-template-columns: 28% 70%;
+}
+
+.phase-ref-box {
+  display: grid;
+  grid-gap: 2%;
+  grid-template-rows: repeat(3, 1fr)
+}
+
+.phase-ref-box, .element-details {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.phase-ref-box .row {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
+.phase-ref-box .row .elem {
+  width: 30%;
+  display: inline-block;
+  border: 1px solid #222222;
+  font-weight: bold;
+  font-size: 180%;
+  padding-bottom: 20%;
+  position: relative;
+}
+
+.phase-ref-box .row .state {
+  padding-left: 10%;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 180%;
+}
+
+.phase-ref-box .row .elem div {
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+
+.phase-ref-box .solid, .jmol .solid {
+  color: #111111;
+}
+
+.phase-ref-box .liquid, .jmol .liquid {
+  color: #003399;
+}
+
+.phase-ref-box .gas, .jmol .gas {
+  color: #990000;
+}
+
+.phase-ref-box .unknown, .jmol .unknown-phase {
+  color: #aaaaaa;
+}
+
+.phase-ref-box .inactive {
+  opacity: 0.5;
+}
+
+.phase-ref-box .solid.active .elem {
+  background: #111111;
+  color: #ffffff;
+}
+
+.phase-ref-box .liquid.active .elem {
+  background: #003399;
+  color: #ffffff;
+}
+
+.phase-ref-box .gas.active .elem {
+  background: #990000;
+  color: #ffffff;
+}
+
+.phase-ref-box .unknown.active .elem {
+  background: #aaaaaa;
+  color: #ffffff;
+}
+
+.large-element-box {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: 1px solid #222222;
+  padding: 3%;
+}
+
+.large-element-box .main {
+  height: 70%;
+  width: 60%;
+  float: right;
+}
+
+.large-element-box .main .atomic-symbol {
+  font-size: 400%;
+  font-weight: bold;
+  text-align: center;
+}
+
+.large-element-box .atomic-weight {
+  height: 15%;
+  text-align: center;
+}
+
+.large-element-box .oxidation_states {
+  height: 15%;
+  font-size: 85%;
+  text-align: center;
+}
+
+.large-element-box .left {
+  float: left;
+  width: 40%;
+  text-align: right;
+}
+
+.large-element-box .left  .density {
+  font-weight: bold;
+}
+
+.large-element-box .left .atomic-number {
+  font-size: 300%;
+  font-weight: bold;
+}
+
+.large-element-box .bot {
+  clear: both;
+  height: 30%;
+  text-align: center;
+}
+
+.large-element-box .bot .electron-config {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.large-element-box .bot .element-name {
+  font-size: 200%;
+}
+
+
+
+.highlight {
+  box-shadow: 0px 0px 0px 1em rgba(153, 153, 153, 0.5);
+  z-index: 100;
+}
+
+.category-indicator {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 50% 8% 40%;
+  grid-gap: 1%;
+}
+
+.category-indicator .metals, .category-indicator .nonmetals {
+  display: grid;
+  grid-template-rows: 15% 85%;
+}
+
+.category-indicator .metals .metal-categories {
+  display: grid;
+  grid-template-columns: 2fr 3fr 2fr 2fr 3fr 3fr;
+  grid-gap: 1%;
+}
+
+.category-indicator .nonmetals .nonmetal-categories {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr;
+  grid-gap: 1%;
+}
+
+.category-indicator .metals .metal-categories > div,
+.category-indicator .metalloid,
+.category-indicator .nonmetals .nonmetal-categories > div {
+  border: 1px solid #333333;
+  overflow: hidden;
+}
+
+.category-indicator .metals .all-metals {
+  padding: 1%;
+}
+
+.category-indicator .metals .all-metals div,
+.category-indicator .nonmetals .all-nonmetals div {
+  border-radius: 10px 0 0 0;
+  border: 2px solid #222222;
+  border-bottom: none;
+  text-align: center;
+  font-weight: bold;
+  font-size: 90%;
+}
+
+.category-indicator .nonmetals .all-nonmetals div {
+  border-radius: 0 10px 0 0;
+}
+
+.category-indicator .metals .metal-categories .alkali-metal div,
+.category-indicator .metals .metal-categories .alkaline-earth-metal div,
+.category-indicator .metals .metal-categories .transition-metal div,
+.category-indicator .metals .metal-categories .lanthanide div,
+.category-indicator .metals .metal-categories .actinide div,
+.category-indicator .metals .metal-categories .post-transition-metal div,
+.category-indicator .metalloid div,
+.category-indicator .nonmetals .nonmetal-categories .diatomic-nonmetal div,
+.category-indicator .nonmetals .nonmetal-categories .polyatomic-nonmetal div,
+.category-indicator .nonmetals .nonmetal-categories .noble-gas div {
+  transform: rotate(90deg) translateX(50%);
+  white-space: nowrap;
+}
+
+.lanthanides-selector, .actinides-selector {
+  border: none;
+}
+
+.lanthanides-selector .element, .actinides-selector .element {
+  text-align: center;
+  padding-top: 40%;
+  font-size: 80%;
+  opacity: 0.5;
+}
+
+p.about {
+  font-size: 80%;
+  text-align: center;
+  margin: 5% 0;
+}
